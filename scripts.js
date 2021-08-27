@@ -331,11 +331,11 @@ return string.replace(/[^\d]+$/g,'') //Remove os caracteres do final da string
 
 }
 
-let retornoNewJoin = newJoin(arrJoin, "-")
-console.log(retornoNewJoin)
+// let retornoNewJoin = newJoin(arrJoin, "-")
+// console.log(retornoNewJoin)
 
-let retornoJoin = arrJoin.join("-")
-console.log(retornoJoin)
+// let retornoJoin = arrJoin.join("-")
+// console.log(retornoJoin)
 
 
 
@@ -343,36 +343,37 @@ console.log(retornoJoin)
 
 
 /********* 13º REDUCE **********/
-// let arrReduce = [1,2,3,4,5]
+let arrReduce = [1,2,3,4,5]
+var soma = [{x: 1}, {x: 2}, {x: 3}]
+
+const callbackReduce = (accumulator, current, index, array) => {
+    return accumulator + current.x;
+
+}
+
+const newReduce = (array, callback, valorInicial = array[0]) => {
+    let accumulator = valorInicial
+   
+
+    for(let i = 0; i < array.length; i++) {
+
+        if( accumulator === array[0] && i === 0 ) {
+            continue
+        }
+        let current = array[i]
+        accumulator = callback(accumulator, current, i, array)
+    }
 
 
-// const callbackReduce = (accumulator, current, index, array) => {
-// let output = accumulator + current
-// //accumulator = 10
-// //current = 1
-
-// output += accumulator + current
-// return accumulator
-
-// }
-
-// const newReduce = (array, callback, valorInicial) => {
-
-//     let output 
-//     if(valorInicial !== undefined) {
-//         for(let i = 0; i < array.length; i++) {
-//         output = callback(valorInicial, array[i])
-//         }
     
-//     }
-// console.log(output)
-//     return output
-// }
+return accumulator
+
+}
 
 
-// let retornoNewReduce = newReduce(arrReduce, callbackReduce, 10)
-// console.log(retornoNewReduce)
+let retornoNewReduce = newReduce(soma, callbackReduce, 0)
+console.log(retornoNewReduce)
 
-// let retornoReduce = arrReduce.reduce((acc,curr) => acc+curr, 1)
-// console.log(retornoReduce)
+let retornoReduce = soma.reduce((acc,curr) => acc+curr.x,0)
+console.log(retornoReduce)
 
