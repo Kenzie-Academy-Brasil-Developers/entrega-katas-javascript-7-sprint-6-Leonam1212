@@ -374,6 +374,6 @@ return accumulator
 let retornoNewReduce = newReduce(soma, callbackReduce, 0)
 console.log(retornoNewReduce)
 
-let retornoReduce = soma.reduce((acc,curr) => acc+curr.x,0)
-console.log(retornoReduce)
+// let retornoReduce = soma.reduce((acc,curr) => acc+curr.x,0)
+// console.log(retornoReduce)
 
